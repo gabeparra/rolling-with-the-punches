@@ -48,7 +48,7 @@ No custom shaders: the project uses stock URP/Lit materials and Unity's built-in
 ## How to open and run
 
 1. Install Unity **6000.3.7f1** (or a compatible 6000.3.x patch) via Unity Hub.
-2. Clone this repo and run `git lfs pull` if you didn't clone with LFS support built in.
+2. Clone this repo (no Git LFS needed).
 3. Before opening in the Editor, import these Unity Asset Store packages into `Assets/` under their original folder names. They're not included in this repo because their EULAs don't allow redistribution, including the free ones:
    - **Synty POLYGON Western Pack** → `Assets/PolygonWestern`
    - **LowPolyHorse (LPHorse)** → `Assets/LPHorse_Version_2_9`
