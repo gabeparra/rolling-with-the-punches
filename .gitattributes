@@ -1,0 +1,30 @@
+* text=auto eol=lf
+
+# Binary assets live in plain git: with the Asset Store packs excluded, the
+# largest file is ~32 MB, so Git LFS isn't needed.
+
+*.fbx binary
+*.blend binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.psd binary
+*.tga binary
+*.tif binary
+*.tiff binary
+*.wav binary
+*.mp3 binary
+*.ogg binary
+*.exr binary
+*.hdr binary
+*.unitypackage binary
+*.ttf binary
+*.otf binary
+*.anim text eol=lf
+
+*.cs text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.txt text eol=lf
+*.uxml text eol=lf
+*.uss text eol=lf

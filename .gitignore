@@ -1,0 +1,68 @@
+# Unity generated
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+*.csproj
+*.sln
+*.slnx
+*.suo
+*.user
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# IDE / tooling
+.vs/
+.vscode/
+.idea/
+.gradle/
+
+# Build artifacts
+*.apk
+*.aab
+*.unitypackage
+
+# Misc
+crashlytics-buildsettings.properties
+sysinfo.txt
+mono_crash.*
+.DS_Store
+Thumbs.db
+*.blend1
+
+# Project-specific
+/Assets/Saves
+Assets/Screenshots/
+Assets/_Recovery/
+Assets/Plugins/Roslyn/
+.utmp/
+.claude/
+
+# Third-party Asset Store packs (not included; import locally if you own a
+# license, see README). Ignored here so a local import can't get committed.
+/Assets/4K Tiled Ground Textures p1/
+/Assets/4K Tiled Ground Textures p1.meta
+/Assets/LPHorse_Version_2_9/
+/Assets/LPHorse_Version_2_9.meta
+/Assets/Western Demo Audio Assets/
+/Assets/Western Demo Audio Assets.meta
+/Assets/CartoonVFX9X/
+/Assets/CartoonVFX9X.meta
+/Assets/PolygonWestern/
+/Assets/PolygonWestern.meta
+/Assets/Fantasy Wooden GUI  Free/
+/Assets/Fantasy Wooden GUI  Free.meta
+/Assets/Free 2D Cartoon Parallax Background/
+/Assets/Free 2D Cartoon Parallax Background.meta
+/Assets/Thaleah_PixelFont/
+/Assets/Thaleah_PixelFont.meta

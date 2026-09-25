@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="480" viewBox="0 0 1600 480">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2A1206"/>
+      <stop offset="0.45" stop-color="#7A2E10"/>
+      <stop offset="0.72" stop-color="#C25A1C"/>
+      <stop offset="1" stop-color="#E8A33D"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#FFD98A"/>
+      <stop offset="1" stop-color="#F08A2C"/>
+    </radialGradient>
+    <linearGradient id="dust" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1A0C05" stop-opacity="0"/>
+      <stop offset="1" stop-color="#140904" stop-opacity="0.95"/>
+    </linearGradient>
+    <linearGradient id="bone" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFF3D6"/>
+      <stop offset="1" stop-color="#E4C48B"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="480" fill="url(#sky)"/>
+
+  <!-- low sun behind the title -->
+  <circle cx="1392" cy="248" r="126" fill="url(#sun)" opacity="0.9"/>
+  <g stroke="#2A1206" stroke-opacity="0.35">
+    <rect x="1266" y="214" width="252" height="7"/>
+    <rect x="1266" y="238" width="252" height="9"/>
+    <rect x="1266" y="266" width="252" height="11"/>
+  </g>
+
+  <!-- mesas -->
+  <g fill="#43170B" opacity="0.85">
+    <path d="M0,300 L60,300 L60,262 L150,262 L150,300 L240,300 L240,480 L0,480 Z"/>
+    <path d="M1380,318 L1440,318 L1440,286 L1530,286 L1530,318 L1600,318 L1600,480 L1380,480 Z"/>
+  </g>
+  <g fill="#2E0F07">
+    <path d="M250,344 L330,344 L330,320 L400,320 L400,344 L470,344 L470,480 L250,480 Z" opacity="0.7"/>
+  </g>
+
+  <!-- cacti -->
+  <g stroke="#3B2A12" stroke-width="13" stroke-linecap="round" fill="none" opacity="0.9">
+    <path d="M520,430 v-84 M520,398 l-26,-26 M520,376 l26,-26"/>
+    <path d="M1330,436 v-62 M1330,414 l-20,-20"/>
+  </g>
+
+  <!-- ground -->
+  <rect y="430" width="1600" height="50" fill="#3A1A0A"/>
+  <rect y="300" width="1600" height="180" fill="url(#dust)"/>
+
+  <!-- wordmark -->
+  <text x="96" y="196" font-family="Montserrat" font-weight="700"
+        font-size="104" letter-spacing="3" fill="url(#bone)">ROLLING</text>
+  <text x="96" y="292" font-family="Montserrat" font-weight="700"
+        font-size="92" letter-spacing="3" fill="#FFD16B">WITH THE PUNCHES</text>
+  <rect x="100" y="326" width="330" height="6" rx="3" fill="#FFD16B"/>
+  <text x="100" y="382" font-family="Montserrat" font-weight="500"
+        font-size="32" letter-spacing="2" fill="#F6DCB4">Unity 6 &#183; Android &#183; twin-stick Western</text>
+</svg>
