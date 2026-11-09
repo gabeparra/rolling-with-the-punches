@@ -7,6 +7,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject startButton;
     [SerializeField] private GameObject mainPanel;
     [SerializeField] private GameObject controlsPanel;
+    [SerializeField] private GameObject creditsPanel;
+    [SerializeField] private GameObject exitButton;
 
     //cursor image merged into this file
     public Texture2D cursorTexture; // This is to store the image data for the sprite
@@ -20,6 +22,12 @@ public class MenuManager : MonoBehaviour
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+#if UNITY_WEBGL
+        // Application.Quit does nothing in a browser tab, so the button would
+        // just look broken.
+        if (exitButton != null) exitButton.SetActive(false);
+#endif
 
         if (startButton != null && EventSystem.current != null)
             EventSystem.current.SetSelectedGameObject(startButton);
@@ -46,6 +54,20 @@ public class MenuManager : MonoBehaviour
     public void HideControls()
     {
         if(controlsPanel != null) controlsPanel.SetActive(false);
+        if(mainPanel != null) mainPanel.SetActive(true);
+        SetCursor();
+    }
+
+    public void ShowCredits()
+    {
+        if(creditsPanel != null) creditsPanel.SetActive(true);
+        if(mainPanel != null) mainPanel.SetActive(false);
+        ResetCursor();
+    }
+
+    public void HideCredits()
+    {
+        if(creditsPanel != null) creditsPanel.SetActive(false);
         if(mainPanel != null) mainPanel.SetActive(true);
         SetCursor();
     }

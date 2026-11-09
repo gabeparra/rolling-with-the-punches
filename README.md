@@ -8,8 +8,17 @@
 
 A twin-stick Western shooter built in Unity 6 with a roguelite run structure, riding a train through bandit-infested levels toward a payoff back at the hub.
 
-<!-- docs/screenshots/gameplay.gif goes here once captured -->
 <p align="center"><img src="docs/screenshots/gameplay.gif" width="80%" alt="Gameplay preview"></p>
+
+## Screenshots
+
+| | |
+|---|---|
+| <img src="docs/screenshots/combat.jpg" alt="Shootout on the train deck in the Classic view"> | <img src="docs/screenshots/android-touch.jpg" alt="The same fight on Android with the touch controls overlay"> |
+| <img src="docs/screenshots/topdown.jpg" alt="TopDown view"> | <img src="docs/screenshots/first-person.jpg" alt="FirstPerson view"> |
+| <img src="docs/screenshots/hub.jpg" alt="The hub between runs"> | |
+
+Captured from the full build. The environment art comes from the Asset Store packs listed below, which are not in this repository.
 
 ## Origin
 
@@ -60,7 +69,7 @@ No custom shaders: the project uses stock URP/Lit materials and Unity's built-in
    - **Thaleah Pixel Font** → `Assets/Thaleah_PixelFont`
 4. Open the project once with those packages in place so Unity can relink the GUID references in scenes and prefabs.
 5. Confirm the URP asset is assigned: **Edit → Project Settings → Graphics**, and **Quality**, should both point at `Assets/Settings/PC_RPAsset.asset` (or `Mobile_RPAsset.asset` for a mobile target).
-6. Entry scene: `Assets/Scenes/HubScene.unity`.
+6. Entry scene: `Assets/Scenes/Menu Screen.unity` (first in the build list, it leads into `HubScene`).
 
 **Without the packs imported**, the project still opens and every script compiles (nothing in `Assets/Scripts` references pack-specific types), but a long list of prefabs, materials and scenes will show missing mesh/material/texture references wherever they used pack content: environment prop prefabs under `Assets/Resources/EnvPrefabs`, several `Assets/Prefabs/*.prefab` files, most of `Assets/Scenes/*.unity`, and the horse's animator controller. That's expected, and it's the tradeoff of keeping this repo redistributable.
 
@@ -69,6 +78,8 @@ One subsystem is missing outright rather than link-broken: an unfinished grid-bu
 ## Android port
 
 Gabriel Parra ported the course build to Android after the semester: a code-only virtual gamepad overlay for touch input, the three-mode view system so a phone player isn't stuck with a desktop-oriented camera, forced landscape orientation, and a headless build pipeline (`Assets/Editor/AndroidBuilder.cs`) that sets IL2CPP, ARM64 and the package id from code rather than editor state.
+
+A prebuilt APK is attached to the latest [release](../../releases).
 
 To build an APK yourself: set the platform to Android in **Build Settings**, make sure the scenes you want are in the build list, then either use **Tools → Build Android APK** in the editor or run Unity headless with `-batchmode -quit -projectPath <path> -executeMethod AndroidBuilder.BuildAndroid`. The build ships signed with Unity's debug keystore, which is fine for sideloading but not for a store release; see the comments in `AndroidBuilder.cs` before changing that.
 
@@ -88,4 +99,6 @@ Of the scripts included in this public repository, Gabriel Parra wrote roughly h
 
 This project's own source code and original assets are MIT licensed, see [LICENSE](LICENSE).
 
-Third-party Asset Store packs referenced by this project (Synty POLYGON Western, LPHorse, Cartoon VFX, 4K Tiled Ground Textures, Western Demo Audio Assets, Fantasy Wooden GUI, Free 2D Cartoon Parallax Background, Thaleah Pixel Font) are not redistributed here and keep their own store licenses. TextMesh Pro assets and the URP project template content (`Assets/TextMesh Pro`, `Assets/TutorialInfo`, `Assets/Settings`) are Unity-provided and covered by Unity's own terms.
+Third-party Asset Store packs referenced by this project (Synty POLYGON Western, LPHorse, Cartoon VFX, 4K Tiled Ground Textures, Western Demo Audio Assets, Fantasy Wooden GUI, Free 2D Cartoon Parallax Background, Thaleah Pixel Font) are not redistributed here and keep their own store licenses. The boulder model and its textures (`Assets/Models/namaqualand_boulder_02_4k.blend`, `Assets/Textures/Rocks/`) are [Namaqualand Boulder 02](https://polyhaven.com/a/namaqualand_boulder_02) from Poly Haven by Greg Zaal and Rico Cilliers, released under CC0.
+
+TextMesh Pro assets and the URP project template content (`Assets/TextMesh Pro`, `Assets/TutorialInfo`, `Assets/Settings`) are Unity-provided and covered by Unity's own terms.

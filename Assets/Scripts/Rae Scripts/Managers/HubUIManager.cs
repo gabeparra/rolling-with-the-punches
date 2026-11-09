@@ -46,6 +46,10 @@ public class HubUIManager : MonoBehaviour
 
         //disable mainMenu button til it's fixed
         if(hideMenuButton) btn_menu.style.display = DisplayStyle.None;
+#if UNITY_WEBGL
+        // Quit is a no-op in a browser tab.
+        btn_quit.style.display = DisplayStyle.None;
+#endif
 
         btn_continue.RegisterCallback<ClickEvent>(OnContinue, TrickleDown.NoTrickleDown); //register the onClick //TODO: do we wanta different TrickleDown??
         btn_menu.RegisterCallback<ClickEvent>(OnMenu, TrickleDown.NoTrickleDown); //register the onClick //TODO: do we wanta different TrickleDown??

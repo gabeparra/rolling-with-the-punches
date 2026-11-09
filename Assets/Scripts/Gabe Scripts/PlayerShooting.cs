@@ -91,7 +91,8 @@ public class PlayerShooting : MonoBehaviour
         Vector3 origin = firePoint.position;
         Vector3 direction = transform.forward;
         // First person aims with camera pitch — shoot along the camera ray.
-        if (ViewModeManager.GetFpsAim(out Vector3 fpsOrigin, out Vector3 fpsDir))
+        bool fpsAim = ViewModeManager.GetFpsAim(out Vector3 fpsOrigin, out Vector3 fpsDir);
+        if (fpsAim)
         {
             origin = fpsOrigin;
             direction = fpsDir;
@@ -126,7 +127,12 @@ public class PlayerShooting : MonoBehaviour
 
         if (tracerPrefab != null)
         {
-            GameObject tracer = Instantiate(tracerPrefab, origin, firePoint.rotation);
+            // In first person the ray starts inside the camera, and a tracer
+            // spawned there fills the whole screen. Start it a little down the ray.
+            Vector3 tracerStart = fpsAim
+                ? origin + direction * Mathf.Min(2.5f, Vector3.Distance(origin, hitPoint))
+                : origin;
+            GameObject tracer = Instantiate(tracerPrefab, tracerStart, firePoint.rotation);
             tracer.layer = 8; // Same bullet layer — bullets ignore each other
             BulletTracer bt = tracer.GetComponent<BulletTracer>();
             if (bt == null) bt = tracer.AddComponent<BulletTracer>();
@@ -137,7 +143,7 @@ public class PlayerShooting : MonoBehaviour
             Collider col = tracer.GetComponent<Collider>();
             if (col != null) col.enabled = false;
             BulletVisuals.Enhance(tracer, new Color(1f, 0.95f, 0.3f), scale: 2.2f, trail: true);
-            bt.Init(origin, hitPoint, tracerSpeed);
+            bt.Init(tracerStart, hitPoint, tracerSpeed);
         }
 
         if (HUDManager.Instance != null && !HUDManager.Instance.HasAmmo() && !_reloading)
