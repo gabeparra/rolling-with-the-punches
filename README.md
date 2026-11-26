@@ -8,6 +8,8 @@
 
 A twin-stick Western shooter built in Unity 6 with a roguelite run structure, riding a train through bandit-infested levels toward a payoff back at the hub.
 
+**Status:** `Maintained` - Unity 6 twin-stick Western roguelite with Android touch port and prebuilt APK releases.
+
 <p align="center"><img src="docs/screenshots/gameplay.gif" width="80%" alt="Gameplay preview"></p>
 
 ## Screenshots
@@ -48,13 +50,13 @@ No custom shaders: the project uses stock URP/Lit materials and Unity's built-in
 | Cycle view mode | `V` | (not mapped) | VIEW button |
 | Look (first person) | Mouse delta | Right stick | Aim-zone drag |
 
-## Tech
+## Stack & Architecture
 
 - Unity **6000.3.7f1**, Universal Render Pipeline (URP)
 - C#, Unity's new Input System (`com.unity.inputsystem`) read directly (`Gamepad.current`, `Keyboard.current`, `Mouse.current`) alongside a few legacy Input Manager axes
 - Notable packages from `Packages/manifest.json`: `com.unity.ai.navigation` (NavMesh for bandit pathing), `com.unity.cinemachine`, `com.unity.probuilder`, `com.unity.visualscripting`, the `com.unity.2d.*` family, and `com.unity.render-pipelines.universal`
 
-## How to open and run
+## Quickstart & Setup
 
 1. Install Unity **6000.3.7f1** (or a compatible 6000.3.x patch) via Unity Hub.
 2. Clone this repo (no Git LFS needed).
