@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  project-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate Unity project manifests and scripts
+        run: |
+          python3 -m json.tool Packages/manifest.json > /dev/null
+          test -f ProjectSettings/ProjectVersion.txt
+          python3 - <<'PY'
+          from pathlib import Path
+          scripts = list(Path("Assets/Scripts").rglob("*.cs"))
+          assert scripts, "No C# scripts found under Assets/Scripts"
+          for p in scripts:
+              text = p.read_text(encoding="utf-8-sig")
+              assert text.strip(), f"Empty C# script: {p}"
+          print(f"Validated {len(scripts)} C# scripts.")
+          PY
